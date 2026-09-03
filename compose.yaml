@@ -1,0 +1,14 @@
+services:
+  c-dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    working_dir: /workspaces/training_c
+    volumes:
+      - .:/workspaces/training_c
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    stdin_open: true
+    tty: true
